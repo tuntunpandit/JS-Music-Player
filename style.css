@@ -12,66 +12,38 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-nav {
-  background-color: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 10px;
-  height: 64px;
-}
-
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  list-style-type: none;
-}
-
-nav ul li {
-  padding: 0 15px;
-}
-
-nav .brand {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
-}
-
-.brand img {
-  width: 44px;
-}
-
-.brand span {
-  font-weight: 600;
-}
-
-.container {
-  height: calc(100vh - 224px);
-  display: flex;
-  background: url("assets//images/bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 20px 30px;
-  padding: 20px;
-  border-radius: 30px;
-  color: white;
-}
-
-.bottom {
-  background-color: black;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  height: 120px;
+.controls {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  background: white;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
-.bottom input[type="range"] {
+.controls img {
+  height: 200px;
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+}
+
+.action {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.action i {
+  cursor: pointer;
+}
+
+input[type="range"] {
   width: 80%;
 }

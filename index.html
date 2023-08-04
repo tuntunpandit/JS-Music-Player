@@ -7,26 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
-      <a class="brand">
-        <img src="assets/images/logo.png" alt="spotify" /><span>Spotify</span>
-      </a>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-      </ul>
-    </nav>
-
-    <div class="container">
-      <h4>Best of NCS : No Copyright Sounds</h4>
-      <div class="songList"></div>
-      <div class="songBanner"></div>
-    </div>
-
-    <div class="bottom">
-      <input type="range" name="range" id="progress-bar" min="0" max="100" />
-      <div class="icons">
-        <i class="fa fa-circle-play"></i>
+    <div class="controls">
+      <img src="assets/covers/1.jpg" alt="song 1" />
+      <div class="action">
+        <span>Let me love you</span>
+        <input
+          type="range"
+          name="range"
+          id="progress-bar"
+          min="0"
+          max="100"
+          value="0"
+        />
+        <i class="fa fa-2x fa-circle-play" id="play"></i>
       </div>
     </div>
     <script
