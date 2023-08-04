@@ -47,3 +47,10 @@ body {
 input[type="range"] {
   width: 80%;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

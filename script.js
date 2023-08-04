@@ -1,7 +1,9 @@
-const backButton = document.getElementById("back");
+const previousButton = document.getElementById("back");
 const playButton = document.getElementById("play");
-const forwardButton = document.getElementById("forward");
+const nextButton = document.getElementById("forward");
 const songProgressBar = document.getElementById("progress-bar");
+const songName = document.getElementById("songName");
+const songCover = document.getElementById("songCover");
 
 let songIndex = 0;
 let audioElement = new Audio("assets/songs/1.mp3");
@@ -12,12 +14,12 @@ const songsList = [
     coverPath: "assets/covers/1.jpg",
   },
   {
-    songName: "Salam-e-Ishq",
+    songName: "Ye Jawani Hai Diwani",
     filePath: "assets/songs/2.mp3",
     coverPath: "assets/covers/2.jpg",
   },
   {
-    songName: "Salam-e-Ishq",
+    songName: "Aakhiri Khwais",
     filePath: "assets/songs/3.mp3",
     coverPath: "assets/covers/3.jpg",
   },
@@ -76,16 +78,45 @@ playButton.addEventListener("click", () => {
 
 audioElement.addEventListener("timeupdate", () => {
   progress = calculateSongProgress();
-  console.log(progress, audioElement.duration);
-  songProgressBar.value = progress;
-  if (calculateSongProgress() === 100) {
-    audioElement.pause();
-    playButton.classList.remove("fa-circle-pause");
-    playButton.classList.add("fa-circle-play");
+  if (progress) {
+    songProgressBar.value = progress;
+    if (progress === 100) {
+      audioElement.pause();
+      playButton.classList.remove("fa-circle-pause");
+      playButton.classList.add("fa-circle-play");
+    }
+  } else {
+    songProgressBar.value = 0;
   }
 });
 
 songProgressBar.addEventListener("change", () => {
   audioElement.currentTime =
     (songProgressBar.value * audioElement.duration) / 100;
+});
+
+function prepareNextSongData(songIndex) {
+  songCover.src = songsList[songIndex].coverPath;
+  songName.innerHTML = songsList[songIndex].songName;
+  audioElement.src = songsList[songIndex].filePath;
+  audioElement.currentTime = 0;
+  audioElement.play();
+  playButton.classList.remove("fa-circle-play");
+  playButton.classList.add("fa-circle-pause");
+}
+
+nextButton.addEventListener("click", () => {
+  songIndex = songIndex + 1;
+  if (songIndex <= 0 || songIndex > songsList.length - 1) {
+    songIndex = 0;
+  }
+  prepareNextSongData(songIndex);
+});
+
+previousButton.addEventListener("click", () => {
+  songIndex = songIndex - 1;
+  if (songIndex < 0) {
+    songIndex = songsList.length - 1;
+  }
+  prepareNextSongData(songIndex);
 });

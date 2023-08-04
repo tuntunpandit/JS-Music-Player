@@ -8,9 +8,9 @@
   </head>
   <body>
     <div class="controls">
-      <img src="assets/covers/1.jpg" alt="song 1" />
+      <img src="assets/covers/1.jpg" alt="song 1" id="songCover" />
       <div class="action">
-        <span>Let me love you</span>
+        <span id="songName">Let me love you</span>
         <input
           type="range"
           name="range"
@@ -19,9 +19,14 @@
           max="100"
           value="0"
         />
-        <i class="fa fa-2x fa-circle-play" id="play"></i>
+        <div class="buttons">
+          <i class="fa fa-2x fa-backward-step" id="back"></i>
+          <i class="fa fa-2x fa-circle-play" id="play"></i>
+          <i class="fa fa-2x fa-forward-step" id="forward"></i>
+        </div>
       </div>
     </div>
+
     <script
       src="https://kit.fontawesome.com/46008b2086.js"
       crossorigin="anonymous"
